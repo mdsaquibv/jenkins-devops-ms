@@ -1,4 +1,4 @@
-https://github.com/mdsaquibv/jenkins-devops-msnode {
+node {
 	stage('Build') {
 		echo "Build"
 	}
