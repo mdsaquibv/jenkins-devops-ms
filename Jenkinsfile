@@ -12,7 +12,7 @@
 // }
 
 // Declarative Pipelines
-Pipelines{
+Pipeline{
 	agent any
 	stages {
 		stage('Build'){
