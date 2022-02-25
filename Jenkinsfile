@@ -15,11 +15,17 @@
 pipeline{
 	//agent { docker { image 'maven:3.6.3'}}
 	agent any
+	environement {
+		dockerHome = tool 'myDocker'
+		mavenHome = tool 'myMaven'
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+	}
 	stages {
 		stage('Build'){
 			steps {
 				
-				//sh 'maven --version'
+				sh 'maven --version'
+				sh 'docker version'
 				echo "PATH $PATH"
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
 				echo "BUILD_ID - $env.JOB_NAME"
