@@ -56,6 +56,7 @@ pipeline{
 				sh "mvn package -DskipTests"
 			}
 		}
+
 		stage('Build'){
 			steps{
 				//"docker build -t mdsaquibv/currency-exchange-devops:$env.BUILD_TAG"
@@ -63,6 +64,7 @@ pipeline{
 					dockerImage = docker.build("mdsaquibv/currency-exchange-devops:${env.BUILD_TAG}")
 				}
 			}
+		}
 			stage('PUSH'){
 				steps{
 					script{
